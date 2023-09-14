@@ -95,7 +95,7 @@ const logOutEvent = () =>{
 }
 
 const showProfilePageEvent = () =>{
-    window.location.href = `/profilePage?token=${localStorage.getItem("token")}`;
+    window.location.href = `/profilePage`;
 }
 
 const showPostPageEvent = (postnum)=>{

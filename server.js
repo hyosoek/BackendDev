@@ -1,11 +1,13 @@
 //environment setting
 const express =require("express")
+const io = require('socket.io');
 const path = require("path")
 const https = require("https")
 const fs = require("fs") 
 const log = require("./middleware/logging.js");
 const schedule = require("./module/schedule.js")
 const errorHandler = require("./middleware/errorhandling.js")
+const cookieParser = require('cookie-parser');
 
 const redis = require("redis").createClient();
 
@@ -28,6 +30,7 @@ app.get("*",(req,res,next) =>{
         res.redirect(destination)
     }
 })
+app.use(cookieParser());
 
 
 //API
@@ -68,6 +71,15 @@ app.listen(8000,async() => {
 https.createServer(sslOptions,app).listen(8443,()=>{
     console.log("Web ssl Server on PortNum:8443")
 })
+
+const socketServer = io(httpServer, {
+	cors: {
+		origin: "*",
+		methods: ["GET", "POST"]
+	}
+});
+
+
 
 
  

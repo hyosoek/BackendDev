@@ -22,7 +22,7 @@ const loginEvent = () =>{
     })
     .then((result) => {
         if(result.success){
-            setCookie("token",result.token)
+            // setCookie("token",result.token)
             if(result.isadmin == false){
                 window.location.href = `/mainPage`;
             } else if(result.isadmin == true){

@@ -39,6 +39,7 @@ router.post("/log-in",async(req,res,next)=>{
                 result.token = await verify.publishToken(row[0])
                 result.isadmin = row[0].isadmin
                 loginCounter.countLogin(parseInt(await row[0].usernum))
+                res.cookie('token', result.token, { httpOnly: false, secure: true });
             } else{
                 result.message = "로그인 실패"
             }

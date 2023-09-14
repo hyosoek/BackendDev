@@ -18,6 +18,18 @@
     "node-fetch": "^3.3.1",
     "node-schedule": "^2.1.1",
     "pg": "^8.11.1",
-    "redis": "^4.6.7"
-  }
+    "redis": "^4.6.7",
+    "socket.io": "^4.7.2"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "study",
+  "description": "node-express server",
+  "version": "1.0.0",
+  "main": "database.js",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
